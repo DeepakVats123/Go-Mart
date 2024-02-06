@@ -1,0 +1,33 @@
+
+
+@media screen and (min-width : 910px ) {
+    .Grid-Box{
+        
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (min-width : 1230px) {
+    .Grid-Box{
+    
+     grid-template-columns: repeat(4, 1fr);
+    }
+
+}
+
+
+
+@media screen and (max-width : 909px) {
+    .Grid-Box{
+    
+     grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+@media screen and (max-width : 610px) {
+    .Grid-Box{
+    
+     grid-template-columns: repeat(1, 1fr);
+    }
+
+}

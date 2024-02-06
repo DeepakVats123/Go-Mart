@@ -1,0 +1,28 @@
+import { Box, Flex, Text } from '@chakra-ui/react'
+import React from 'react'
+import { useSelector } from 'react-redux'
+import { NavLink } from 'react-router-dom'
+
+const Navbar = () => {
+  const cartItemsCount = useSelector((storeData)=>{
+    return storeData.cartProducts.length
+  })
+
+  const Active = {
+    textDecoration : 'underline'
+  }
+  const inActive ={
+    textDecoration : 'none'
+  }
+  return (
+    <Flex  bg='black' height='75px'>
+        <Box color='white' flex='1' m='auto' fontSize={'35px'}> <NavLink to={'/'}><Text>All Products</Text></NavLink> </Box>
+        <Box color='white' flex='1' m='auto' fontSize={'35px'}><NavLink to={'/cart'}><Flex>
+        <Box align='right' flex={'1'}>Cart </Box>
+        <Box color={'blue.500'} align='left' flex={'1'}> ({cartItemsCount})</Box>
+        </Flex></NavLink></Box>
+    </Flex>
+  )
+}
+
+export default Navbar

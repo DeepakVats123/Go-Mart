@@ -32,7 +32,7 @@ const CartCard = ({e,i}) => {
 
                 <Stack>
                   <CardBody align='left' width={'600px'}  >
-                    <Heading  size='lg'>{e.title.slice(0, 36)}</Heading>
+                    <Heading  size='lg'>{e.title.slice(0, 28)}</Heading>
 
                     <Text mb='-4' >
                       {e.description.slice(0, 50)}

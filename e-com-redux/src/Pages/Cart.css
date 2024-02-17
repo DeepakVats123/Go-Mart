@@ -1,14 +1,49 @@
-@media screen and (min-width : 1312px) {
+@media screen and (min-width : 1070px) {
     .CartGrid{
         display: grid;
         grid-template-columns: repeat(2,1fr);
         
+        
     }
+    .PriceDetailsSection{
+        height: 320px;
+        
+        border: 1px solid lightgray;
+        margin: 10px;
+    }
+    .PriceText{
+        font-size: 20px;
+    }
+    .TotalText{
+        font-size: 20px;
+ 
+     }
 }
 
-@media screen and (min-width : 725px) {
+@media screen and (max-width : 1069px) {
     .TotalText{
-       font-size: 20px;
+       font-size: 25px;
 
     }
+    .PriceText{
+        font-size: 25px;
+    }
+    .PriceDetailsSection{
+        margin: 30px;
+    }
+    
+}
+
+@media screen and (max-width : 600px) {
+    .TotalText{
+       font-size: 15px;
+
+    }
+    .PriceText{
+        font-size: 15px;
+    }
+    .PriceDetailsSection{
+        margin: 10px;
+    }
+    
 }

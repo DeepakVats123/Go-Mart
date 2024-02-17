@@ -25,20 +25,20 @@ const Cart = () => {
           }) : <EmptyCart /> }
         </Box>
         
-        <Box h='350px' border='1px solid lightGray'  m='16' >
+        <Box className='PriceDetailsSection'   >
           <Heading m='4' size={'lg'} >Price Details</Heading>
           <Divider/>
-          <Flex fontSize={'x-large'}>
+          <Flex className='PriceText'>
             <Text m='2' align='left' flex='1' ml='6' >Price ({cartItems.length} items)</Text>
             <Text m='2' mr='6' align='right' flex='1' >$ {Math.ceil(plus)} </Text>
           </Flex>
 
-          <Flex fontSize={'x-large'}>
+          <Flex className='PriceText'>
             <Text m='2' ml='6' align='left' flex='1'  >Discount (10%) </Text>
             <Text color='green' m='2' align='right' flex='1' mr='6' > -$ {Math.ceil(discountValue)} </Text>
           </Flex>
 
-          <Flex fontSize={'x-large'}>
+          <Flex className='PriceText'>
             <Text m='2' ml='6' align='left' flex='1' >Delivery Charges ($2) </Text>
             <Text m='2' align='right' flex='1' mr='6' >{total > 100  ? <Box><Text color='gray' as='del'>$ 2</Text><Text color='green'>free</Text></Box> : <Box><Text>$ 2</Text><Text fontSize='xs' color='green'>(Not applicable above $100 order)</Text></Box> } </Text>
           </Flex>

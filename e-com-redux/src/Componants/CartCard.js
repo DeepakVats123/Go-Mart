@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { deleteFromCartAction } from '../Redux/Actions/DeleteFromCartAction';
 import { IncCartAction } from '../Redux/Actions/IncCartAction';
 import { DecCartAction } from '../Redux/Actions/DecCartAction';
-
+import './CartCard.css'
 const CartCard = ({e,i}) => {
   
     const dispatch = useDispatch()

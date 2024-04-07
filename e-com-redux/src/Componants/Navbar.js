@@ -9,15 +9,16 @@ const Navbar = () => {
     return storeData.cartProducts.length
   })
 
-  const Active = {
-    textDecoration : 'underline'
-  }
-  const inActive ={
-    textDecoration : 'none'
-  }
+  // const Active = {
+  //   textDecoration : 'underline'
+  // }
+  // const inActive ={
+  //   textDecoration : 'none'
+  // }
   return (
     <Flex className='FontDesign'  bg='black' height='75px'>
         <Box color='white' flex='1' m='auto' > <NavLink to={'/'}><Text>All Products</Text></NavLink> </Box>
+        <Box color='white' flex='1' m='auto' > <NavLink to={'/login'}><Text>Login</Text></NavLink> </Box>
         <Box color='white' flex='1' m='auto' ><NavLink to={'/cart'}><Flex>
         <Box align='right' flex={'1'}>Cart </Box>
         <Box color={'blue.500'} align='left' flex={'1'}> ({cartItemsCount})</Box>

@@ -10,6 +10,8 @@
         
         border: 1px solid lightgray;
         margin: 10px;
+        position: sticky;
+        top: 20px;
     }
     .PriceText{
         font-size: 20px;

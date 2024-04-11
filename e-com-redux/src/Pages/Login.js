@@ -24,7 +24,7 @@ const Login = () => {
         <Heading onChange={(e)=>{}} as={'h1'}>Login</Heading>
         <FormLabel>Email address</FormLabel>
         <Input value={emalAddress} onChange={(e)=>{setEmailAddress(e.target.value)}}  type='email' />
-        <FormLabel>Password:</FormLabel>
+        <FormLabel>Password</FormLabel>
         <Input value={pass} onChange={(e)=>{setPass(e.target.value)}} type='password' />
         
         

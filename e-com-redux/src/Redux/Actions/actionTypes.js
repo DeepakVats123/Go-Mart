@@ -3,3 +3,4 @@ export const addToCart = "ADD TO CART";
 export const deleteCartItem = "DELETE FROM CART";
 export const increaseCartItem = "INCREASE CART ITEM"
 export const decreaseCartItem = "DECREASE CART ITEM"
+export const setUser = "SET USER"

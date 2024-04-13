@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import {FormControl,FormLabel,Input,Heading} from '@chakra-ui/react'
+import {FormLabel,Input,Heading, textDecoration} from '@chakra-ui/react'
+import { Link } from 'react-router-dom'
 
 
 const Login = () => {
@@ -12,10 +13,10 @@ const Login = () => {
     const validForm = (data)=>{
       const errors = {}
         if(!data.email){
-            errors.email = "please provide email address"
+            errors.email = "*Please provide a valid email address"
         }
-        if(!data.password){
-          errors.password = "please provide password"
+        if(!data.password || data.password.length < 8){
+          errors.password = "*Please provide a valid password"
         }
         setErrorsList(errors)
         return errorsList
@@ -29,10 +30,18 @@ const Login = () => {
     }
     function handleSubmit(e){
         e.preventDefault()
+        const userData = JSON.parse(localStorage.getItem("users"))
+        console.log(userData)
         
         const validateResult = validForm(formdata)
         console.log(validateResult)
         if(Object.keys(validateResult).length) return
+
+        if(userData.email == formdata.email && userData.password == formdata.password){
+          console.log("login succsussful")
+        }else{
+          console.log("login Failed")
+        }
 
         setFormData({
           email : '',
@@ -57,7 +66,10 @@ const Login = () => {
         <Input  name='password' value={formdata.password} onChange={handleChange} type='password' />
         <p style={{textAlign: 'left', color: "red"}}>{errorsList.password}</p>
         
-        <Input mt={'10px'} border={'1px solid black'} type='submit' value={'Login'} />
+        <Input mb={'20px'} mt={'10px'} border={'1px solid black'} type='submit' value={'Login'} />
+
+        <Link style={{color : "blue"}} onMouseOver={{textDecoration: "underline"}} to='/signin' >New User ? Create an account</Link>
+        
         
     </form>
     

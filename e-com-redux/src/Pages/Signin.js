@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {FormLabel,Input,Heading} from '@chakra-ui/react'
+import {FormLabel,Input,Heading, AlertIcon,Stack,Alert, Center} from '@chakra-ui/react'
 import { Link, useNavigate } from 'react-router-dom'
 const Signin = () => {
     const [signInData, setSignInData] = useState({"name" : "","email" : "","password" : ""})
@@ -92,7 +92,18 @@ const Signin = () => {
         
         <Input mb={'20px'} mt={'10px'} border={'1px solid black'} type='submit' value={'Sign In'} />
         <Link style={{color: 'blue', textDecoration: 'underline'}} to='/login' >Existing User? Log in</Link>
-        <p style={{color: "red"}}>{userIsAlreadyRegisterd}</p>
+
+        
+        {userIsAlreadyRegisterd ?
+          <Center mt={'20px'}>
+          <Stack spacing={3}>
+          <Alert status='error'>
+            <AlertIcon />
+            {userIsAlreadyRegisterd}
+          </Alert>
+        </Stack>
+        </Center> :
+        <></>}
         
     </form>
   )

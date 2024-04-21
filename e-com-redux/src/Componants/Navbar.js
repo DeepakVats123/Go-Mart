@@ -22,7 +22,7 @@ const Navbar = () => {
   return (
     <Flex className='FontDesign'  bg='black' height='75px' >
         <Box color='white' flex='1' m='auto' > <NavLink to={'/'}><Text>All Products</Text></NavLink> </Box>
-        <Box color='white' flex='1' m='auto' > <Text>{<LoginBtn />}</Text> </Box>
+        <Box color='white' flex='1' m='auto' > {<LoginBtn />}</Box>
         <Box color='white' flex='1' m='auto' ><NavLink to={'/cart'}><Flex>
         <Box align='right' flex={'1'}>Cart </Box>
         <Box color={'blue.500'} align='left' flex={'1'}> ({cartItemsCount})</Box>

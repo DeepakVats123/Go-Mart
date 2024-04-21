@@ -3,23 +3,33 @@ import { FormLabel, Input, Heading, useToast } from "@chakra-ui/react";
 import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
+  console.log("Login ");
   const [formdata, setFormData] = useState({
     email: "",
     password: "",
   });
   const [errorsList, setErrorsList] = useState("");
   const [userNotFound, setUserNotFound] = useState("");
+  const [logiInStatus, setlogiInStatus] = useState(
+    JSON.parse(localStorage.getItem("ecom-login-status"))
+  );
   const navigate = useNavigate();
-  const toast = useToast()
-  
-  const logiInStatus = JSON.parse(localStorage.getItem("ecom-login-status"))
-   
-  useEffect(()=>{
-    if(logiInStatus.status){
-      navigate('/')
+  const toast = useToast();
+
+  useEffect(() => {
+    if (!logiInStatus) {
+      setlogiInStatus(
+        localStorage.setItem(
+          "ecom-login-status",
+          JSON.stringify({ status: false, name: "profile" })
+        )
+      );
+    } else {
+      if (logiInStatus.status) {
+        navigate("/");
+      }
     }
-   },[])
-  
+  }, []);
 
   const validForm = (data) => {
     const errors = {};
@@ -38,9 +48,9 @@ const Login = () => {
       return { ...prevData, [e.target.name]: e.target.value };
     });
   };
+
   function handleSubmit(e) {
     e.preventDefault();
-
     const validateResult = validForm(formdata);
     console.log(validateResult);
     if (Object.keys(validateResult).length) return;
@@ -55,41 +65,47 @@ const Login = () => {
 
       if (login.length !== 0) {
         console.log("login succsussful");
-        localStorage.setItem("ecom-login-status", JSON.stringify({"status" : true,"name": userData[0].name}));
+        setlogiInStatus(
+          localStorage.setItem(
+            "ecom-login-status",
+            JSON.stringify({ status: true, name: userData[0].name })
+          )
+        );
         setFormData({
           email: "",
           password: "",
         });
         toast({
-          
-          title : 'Login Done',
+          title: "Login Done",
           description: "you are successfully logged In",
-          status: 'success',
+          status: "success",
           duration: 3000,
           isClosable: true,
-        })
-        navigate('/')
-        
+        });
+        navigate("/");
       } else {
         console.log("login Failed");
-        localStorage.setItem("ecom-login-status", JSON.stringify({"status" : true,"name": "Login"}));
+        setlogiInStatus(
+          localStorage.setItem(
+            "ecom-login-status",
+            JSON.stringify({ status: false, name: "Login" })
+          )
+        );
 
-        
         toast({
           title: "User not found ! wrong email/password.",
           status: "error",
           isClosable: true,
-        })
+        });
       }
     } else {
       console.log("user not found");
-      
-      
+
       toast({
         title: "User not found ! wrong email/password.",
         status: "error",
         isClosable: true,
-      })
+      });
     }
   }
 

@@ -20,7 +20,8 @@ const CartCard = ({e,i}) => {
             <Card mt='5' 
                             direction={{ base: 'column', sm: 'row' }}
                             overflow='hidden'
-                            variant='outline' >
+                            variant='outline'
+                            size='sm' >
                     <Image
                       m='3'
                       objectFit='cover'

@@ -1,4 +1,4 @@
-import { Menu, MenuButton, MenuList,Button, MenuItem,Text } from '@chakra-ui/react'
+import { Menu, MenuButton, MenuList,Button, MenuItem,Text, Center } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 
@@ -17,17 +17,17 @@ useEffect(()=>{
 })
 
   return (
-<Menu bg={"black"}>
-  <MenuButton bg={"black"} color={"white"} as={Button} rightIcon={">"}>
+<Menu  bg={"black"}>
+  <MenuButton  bg={"black"} color={"white"} as={Button} rightIcon={">"}>
   
     {
       logInStatus.status == false || logInStatus.status == null? <NavLink to={'/login'}>Login </NavLink>  : <Text>{logInStatus.name}</Text>
     }
   </MenuButton>
-  <MenuList bg={"black"}>
-    <MenuItem fontSize={"md"} bg={"black"}>{logInStatus.status == false || logInStatus.status == null ? 
-      <NavLink to={'/login'}>LogIn </NavLink>
-    : <button onClick={()=>{
+  <MenuList alignItems={'center'}  bg={"black"}>
+    <MenuItem   fontSize={"md"} bg={"black"}>{logInStatus.status == false || logInStatus.status == null ? 
+      <NavLink  to={'/login'}>LogIn </NavLink>
+    : <button   onClick={()=>{
       localStorage.setItem("ecom-login-status",JSON.stringify({"name" : "Login", "status": false}));
       setIsLogIn(JSON.parse(localStorage.getItem("ecom-login-status")))
       }}>Logout</button>}</MenuItem>

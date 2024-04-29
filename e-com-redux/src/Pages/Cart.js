@@ -1,14 +1,41 @@
-import { Box,Divider, Flex, Heading,Image,Text } from '@chakra-ui/react'
-import React from 'react'
+import { Box,Divider, Flex, Heading,Image,Text, useToast } from '@chakra-ui/react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import CartCard from '../Componants/CartCard';
 import './Cart.css'
 import EmptyCart from '../Componants/EmptyCart';
+import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
   const cartItems = useSelector((storeData)=>{
     return storeData.cartProducts
   })
+  const [logiInStatus, setlogiInStatus] = useState(
+    JSON.parse(localStorage.getItem("ecom-login-status"))
+  );
+  const navigate = useNavigate();
+  const toast = useToast();
+  
+
+  useEffect(() => {
+    if (!logiInStatus) {
+      setlogiInStatus(
+        localStorage.setItem(
+          "ecom-login-status",
+          JSON.stringify({ status: false, name: "profile" })
+        )
+      );
+    } else {
+      if (!logiInStatus.status) {
+        navigate("/");
+        toast({
+          title: "Please Login to access cart section!",
+          status: "error",
+          isClosable: true,
+        });
+      }
+    }
+  }, []);
   
 
   let plus = cartItems.reduce((sum , e)=> sum + e.price * e.quantity , 0)

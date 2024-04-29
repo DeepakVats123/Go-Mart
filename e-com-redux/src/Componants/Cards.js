@@ -2,18 +2,25 @@ import { Button, Card, CardBody, Center, Divider, GridItem, Heading, Image, Stac
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { addToCartAction } from '../Redux/Actions/AddToCartAction'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Cards = ({productDetails}) => {
     const dispatch = useDispatch();
+    const navigate =  useNavigate();
     const sendItemToCart = (e)=>{
         
         addToCartAction(e,dispatch)
     }
 
+    function handleNavigate(){
+      navigate(`/${productDetails.title.slice(0,15)}`,{state : productDetails})
+    }
+
   return (
     <GridItem mt={'10px'} >
-        <Card  boxShadow={'2xl'} maxW='lg' h='480' >
-  <CardBody>
+        <Card   boxShadow={'2xl'} maxW='lg' h='480' >
+        
+  <CardBody onClick={()=>handleNavigate()} >
     <Center><Image  boxSize='200px'
       src={productDetails.image}
       alt='Green double couch with wooden legs'
@@ -30,6 +37,7 @@ const Cards = ({productDetails}) => {
       <Text as='b' color='green'>{productDetails.rating.rate} Rating</Text>
     </Stack>
   </CardBody>
+ 
   <Divider />
   
       <Stack align='center'>

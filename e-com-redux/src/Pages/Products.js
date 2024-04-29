@@ -1,12 +1,15 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Products.css'
 import { getDataFromServer } from '../Redux/Actions/getDataAction'
 import { useDispatch, useSelector } from 'react-redux'
 import {Box, Flex, Grid, GridItem,Image, Select, Text } from '@chakra-ui/react'
 import Cards from '../Componants/Cards'
+import Filters from '../Componants/Filters'
 
 
 const Products = () => {
+  const [fil, setFil] = useState(()=> ()=> ()=>{})
+  const [sorting, setsorting] = useState(()=>()=>()=>{})
   const dispatch = useDispatch()
   const products = useSelector((storeData)=>{
     return storeData.products;
@@ -21,34 +24,88 @@ const Products = () => {
     .then((res2) => getDataFromServer(res2,dispatch))
     
   }
+
+  function handleFilterOnChange(e){
+    if(e.target.value == "Select catageries"){
+      setFil(()=> ()=> ()=>{})
+    }
+    else{
+      setFil(()=>(el)=> el.category == e.target.value  )
+      
+    }
+    
+  }
+  function handleSort(e){
+    console.log(e.target.value)
+   if(e.target.value == "sort-by"){
+      setsorting(()=> ()=> ()=>{})
+   }
+   else if(e.target.value == "low-high"){
+    setsorting(() => (a,b) => a.price - b.price)
+    }
+    else if(e.target.value == "high-low"){
+      setsorting(() => (a,b) => b.price - a.price)
+      }
+      else if(e.target.value == "a-z"){
+        setsorting(() => (a,b)=> {
+          if (a.title < b.title) {
+            return -1;
+          }
+          if (a.title > b.title) {
+            return 1;
+          }
+          return 0;
+        
+        })
+        }
+        else if(e.target.value == "z-a"){
+          setsorting(() => (a,b)=> {
+            if (a.title > b.title) {
+              return -1;
+            }
+            if (a.title < b.title) {
+              return 1;
+            }
+            return 0;
+          
+          })
+          }
+        
+
+  }
+    
   return <Box>
-    <Flex mt={'10px'} gap={'10px'}>
-      <Box><Text fontSize={'2xl'} m={'3px'}>Filters</Text></Box>
-      <Box >
-      <Select  placeholder='Select Catagries' >
-        <option value='option1'>Men's Clothing</option>
-        <option value='option2'>Women's Clothing</option>
-        <option value='option3'>Electronics</option>
-        <option value='option3'>Jewelleries</option>
-      </Select>
-      </Box>
-      
-      <Box>
-      <Select placeholder='Sort by'>
-        <option value='option1'>Price (Low - High)</option>
-        <option value='option2'>Price (High - Low)</option>
-        <option value='option3'>A - Z</option>
-        <option value='option3'>Z - A</option>
-      </Select>
-      </Box>
-      
-    </Flex>
-    <Grid  className='Grid-Box' align={'center'} gap={3} >
-            {products.length > 0 ? products.map((e,i)=>{
-              return <Cards key={i} productDetails= {e} />
-            }) : <GridItem align='center' > <Image src='https://i.stack.imgur.com/ATB3o.gif' /> </GridItem>}
-          </Grid>
-  </Box>
+
+        <Flex mt={'10px'} gap={'10px'}>
+              <Box><Text fontSize={'2xl'} m={'3px'}>Filters</Text></Box>
+              <Box >
+              <Select onChange={handleFilterOnChange} >
+                <option value="Select catageries">Select catageries</option>
+                <option value="men's clothing">Men's Clothing</option>
+                <option value="women's clothing">Women's Clothing</option>
+                <option value="electronics">Electronics</option>
+                <option value="jewelery">Jeweleries</option>
+              </Select>
+              </Box>
+              
+              <Box>
+              <Select onChange={handleSort} >
+                <option value="sort-by">Sort by</option>
+                <option value='low-high'>Price (Low - High)</option>
+                <option value='high-low'>Price (High - Low)</option>
+                <option value='a-z'>A - Z</option>
+                <option value='z-a'>Z - A</option>
+              </Select>
+              </Box>
+              
+        </Flex>
+    
+            <Grid  className='Grid-Box' align={'center'} gap={3} >
+              {products.length > 0 ? products.filter(fil).sort(sorting).map((e,i)=>{
+                return <Cards key={i} productDetails= {e} />
+              }) : <GridItem align='center' > <Image src='https://i.stack.imgur.com/ATB3o.gif' /> </GridItem>}
+            </Grid>
+         </Box>
   
 }
 

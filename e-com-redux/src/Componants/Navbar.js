@@ -25,7 +25,7 @@ const Navbar = () => {
         <Box color='white' flex='1' m='auto' > {<LoginBtn />}</Box>
         <Box color='white' flex='1' m='auto' ><NavLink to={'/cart'}><Flex>
         <Box align='right' flex={'1'}>Cart </Box>
-        <Box color={'blue.500'} align='left' flex={'1'}> ({cartItemsCount})</Box>
+        <Box color={'blue.500'} align='left' flex={'1'}>({cartItemsCount}) </Box>
         </Flex></NavLink></Box>
     </Flex>
   )

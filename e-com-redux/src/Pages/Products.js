@@ -4,7 +4,7 @@ import { getDataFromServer } from '../Redux/Actions/getDataAction'
 import { useDispatch, useSelector } from 'react-redux'
 import {Box, Flex, Grid, GridItem,Image, Select, Text } from '@chakra-ui/react'
 import Cards from '../Componants/Cards'
-import Filters from '../Componants/Filters'
+
 
 
 const Products = () => {

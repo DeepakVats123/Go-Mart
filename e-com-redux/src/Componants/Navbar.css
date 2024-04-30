@@ -1,17 +1,17 @@
 @media screen and (min-width : 610px) {
     .FontDesign {
-        font-size: 35px;
+        font-size: 30px;
     }
 }
 
 @media screen and (max-width : 610px) {
     .FontDesign {
-        font-size: 25px;
+        font-size: 15px;
     }
 }
 
-@media screen and (max-width : 264px) {
+@media screen and (max-width : 300px) {
     .FontDesign {
-        font-size: 15px;
+        font-size: 10px;
     }
 }

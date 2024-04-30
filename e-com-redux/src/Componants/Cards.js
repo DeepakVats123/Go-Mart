@@ -41,7 +41,7 @@ const Cards = ({productDetails}) => {
   <Divider />
   
       <Stack align='center'>
-      <Button onClick={()=>{sendItemToCart(productDetails)}} m='3' size='md' variant='solid' colorScheme='blue'>Add to Cart</Button>
+      <Button onClick={()=>{sendItemToCart(productDetails)}} m='3' size='sm' variant='solid' colorScheme='blue'>Add to Cart</Button>
       </Stack>
   
 </Card>

@@ -3,7 +3,7 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <SimpleGrid textAlign={'left'} p={4} bg={'black'} mt={'50px'}  templateColumns='repeat(auto-fill, minmax(320px, 1fr))'>
+    <SimpleGrid alignContent={'space-between'} textAlign={'left'} p={4} bg={'black'} mt={'50px'}  templateColumns='repeat(auto-fill, minmax(320px, 1fr))'>
     <Card  color={'gray'} bg={'black'}>
       <CardHeader mb='-30px'>
         <Heading size='md'> ABOUT</Heading>

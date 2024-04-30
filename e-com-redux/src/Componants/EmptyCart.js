@@ -3,7 +3,14 @@ import React from 'react'
 
 const EmptyCart = () => {
   return (
-    <Box >
+    <Box mt={'10px'}
+     css={
+            {
+                '@media (max-width: 500px)': {
+                    width : '300px'
+                },
+            }
+         } >
               <Box  p='20' mt='1' align='center' border={'1px solid lightGray'}>
                 <Image m='5' boxSize={'200px'} alt='CartImage' src='https://cdn-icons-png.flaticon.com/512/4555/4555971.png' />
                 <Text  as='b' fontSize={'2xl'} >Your cart is empty!</Text>

@@ -46,13 +46,14 @@ const Cart = () => {
   return (
 
     <Box className='CartGrid'  >
-        <Box className='cartCartSection'>
+        <Box m={'auto'} p={'2px'} w={'450px'}  align={'center'} className='cartCardSection'>
         {cartItems.length > 0 ? cartItems.map((e,i) =>{
             return <CartCard key={i+1} e={e} i={i} />
           }) : <EmptyCart /> }
         </Box>
         
         <Box className='PriceDetailsSection'   >
+        <Box className='priceDetailsCard' m={'auto'} mt={'20px'}>
           <Heading m='4' size={'lg'} >Price Details</Heading>
           <Divider/>
           <Flex className='PriceText'>
@@ -74,6 +75,7 @@ const Cart = () => {
             <Text as='b' className='TotalText'  m='2' ml='6' align='left' flex='1' >Total Amount</Text>
             <Text as='b' className='TotalText'  m='2' mr='6' align='right' flex='1' >$ {cartItems.length > 0 ? Math.ceil(total) : 0} </Text>
           </Flex>
+          </Box>
         </Box>
     </Box>
   )

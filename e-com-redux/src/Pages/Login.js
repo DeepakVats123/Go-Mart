@@ -1,5 +1,6 @@
+import './Login.css'
 import React, { useEffect, useState } from "react";
-import { FormLabel, Input, Heading, useToast } from "@chakra-ui/react";
+import { FormLabel, Input, Heading, useToast, Box } from "@chakra-ui/react";
 import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -110,16 +111,29 @@ const Login = () => {
   }
 
   return (
+    <Box
+     w={'650px'}
+     m={'auto'}
+     mt={12}
+     boxShadow={'outline'}
+     p={6}
+     css={{
+                '@media (max-width: 680px)': {
+                    width: "300px",
+                },
+            }}
+     >
     <form
       onSubmit={handleSubmit}
-      style={{
-        width: "600px",
-        border: "1px solid black",
-        padding: "20px",
-        margin: "auto",
-        marginTop: "20px",
-        minHeight: "300px",
-      }}
+      // style={{
+      //   width: "600px",
+      //   border: "1px solid black",
+      //   padding: "20px",
+      //   margin: "auto",
+      //   marginTop: "20px",
+      //   minHeight: "300px",
+        
+      // }}
     >
       <Heading onChange={(e) => {}} as={"h1"}>
         Login
@@ -155,6 +169,7 @@ const Login = () => {
 
       <p style={{ color: "red" }}>{userNotFound}</p>
     </form>
+    </Box>
   );
 };
 

@@ -18,14 +18,31 @@ useEffect(()=>{
 
   return (
 <Menu  bg={"black"}>
-  <MenuButton  bg={"black"} color={"white"} as={Button} rightIcon={">"}>
+  <MenuButton 
+    css={
+                              {
+                                  
+                                  
+                                  '@media (max-width: 610px)': {
+                                      fontSize : '15px'
+                                  },
+                                  '@media (min-width: 610px)': {
+                                      fontSize : '30px'
+                                  },
+                                  '@media (max-width: 300px)': {
+                                      fontSize : '10px'
+                                  }
+
+                              }
+                          }
+    bg={"black"} color={"white"} as={Button} rightIcon={">"}>
   
     {
-      logInStatus.status == false || logInStatus.status == null? <NavLink to={'/login'}>Login </NavLink>  : <Text>{logInStatus.name}</Text>
+      logInStatus.status == false || logInStatus.status == null? <NavLink  to={'/login'}>Login </NavLink>  : <Text>{logInStatus.name}</Text>
     }
   </MenuButton>
   <MenuList alignItems={'center'}  bg={"black"}>
-    <MenuItem   fontSize={"md"} bg={"black"}>{logInStatus.status == false || logInStatus.status == null ? 
+    <MenuItem   fontSize={"lg"} bg={"black"}>{logInStatus.status == false || logInStatus.status == null ? 
       <NavLink  to={'/login'}>LogIn </NavLink>
     : <button   onClick={()=>{
       localStorage.setItem("ecom-login-status",JSON.stringify({"name" : "Login", "status": false}));

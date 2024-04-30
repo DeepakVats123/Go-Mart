@@ -17,11 +17,14 @@ const CartCard = ({e,i}) => {
       
     }
   return (
-            <Card mt='5' 
+            <Card  mt={'10px'}
                             direction={{ base: 'column', sm: 'row' }}
                             overflow='hidden'
                             variant='outline'
-                            size='sm' >
+                            size='sm'
+                            
+                            alignItems={'center'}
+                             >
                     <Image
                       m='3'
                       objectFit='cover'
@@ -29,34 +32,41 @@ const CartCard = ({e,i}) => {
                       maxH={{ sm: '150px'}}
                       src={e.image}
                       alt='Caffe Latte'
+                      css={
+                              {
+                                  '@media (max-width: 480px)': {
+                                      width : '40%'
+                                  },
+                              }
+                          }
                     />
 
                 <Stack>
-                  <CardBody align='left' width={'600px'}  >
-                    <Heading  size='lg'>{e.title.slice(0, 28)}</Heading>
+                  <CardBody align='left' width={'450px'}  >
+                    <Heading  size='md'>{e.title.slice(0, 28)}</Heading>
 
                     <Text mb='-4' >
                       {e.description.slice(0, 50)}
                     </Text>
                   </CardBody>
                   <Divider />
-                  <Flex   alignItems={'center'} mb='2         '>
-                      <Box   align = 'center' flex='4' >
+                  <Flex   alignItems={'center'} mb='2'>
+                      <Box ml={'20px'}  align = 'center' flex='1' >
                       <Heading   size='md' >${e.price}</Heading>
-                      <Text color='green'>{e.rating.rate} Rating</Text>
+                      <Text color='green'><Text as={'b'}>{e.rating.rate}</Text> Rating</Text>
                       </Box>
 
-                      <Box flex='2' align={'center'}>
-                            <Flex>
-                            <Button isDisabled={e.quantity === 1} onClick={()=> DecCartAction(e,dispatch)}   variant='solid' colorScheme='blue'>-</Button>
-                            <Input  onChange={onChangeEventFn}  w='60px'  placeholder={e.quantity} />
-                            <Button isDisabled={e.quantity === 10} onClick={()=>{IncCartAction(e,dispatch,e.id)}} variant='solid' colorScheme='blue'>+</Button>
+                      <Box ml={'20px'}  flex='1' align={'left'}  >
+                            <Flex >
+                            <Button size={'sm'} isDisabled={e.quantity === 1} onClick={()=> DecCartAction(e,dispatch)}   variant='solid' colorScheme='blue'>-</Button>
+                            <Input size={'sm'}  onChange={onChangeEventFn} p={1} w='30px'  placeholder={e.quantity} />
+                            <Button size={'sm'} isDisabled={e.quantity === 10} onClick={()=>{IncCartAction(e,dispatch,e.id)}} variant='solid' colorScheme='blue'>+</Button>
                             </Flex>
                             
                       </Box>
                       
-                      <Box   align='center' flex='1' >
-                      <Button  onClick={()=>{deleteFromCartAction(cartItems,dispatch,i)}} size={'md'} variant='solid' colorScheme='blue'>Delete</Button>
+                      <Box ml={'20px'} align={'left'}   flex='4' >
+                      <Button  onClick={()=>{deleteFromCartAction(cartItems,dispatch,i)}} size={'sm'} variant='solid' colorScheme='blue'>Delete</Button>
                       </Box>
                     </Flex>
                 </Stack>

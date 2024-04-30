@@ -22,6 +22,7 @@ const Products = () => {
     fetch('https://fakestoreapi.com/products')
     .then((res) => res.json())
     .then((res2) => getDataFromServer(res2,dispatch))
+    .catch(err => console.log(err))
     
   }
 

@@ -1,11 +1,18 @@
-@media screen and (min-width : 1070px) {
+.priceDetailsCard{
+    height: 320px;
+    
+    border: 1px solid lightgray;
+    margin: 10px;
+   
+}
+@media screen and (min-width : 1140px) {
     .CartGrid{
         display: grid;
         grid-template-columns: repeat(2,1fr);
         
         
     }
-    .PriceDetailsSection{
+    .priceDetailsCard{
         height: 320px;
         
         border: 1px solid lightgray;
@@ -33,6 +40,8 @@
     .PriceDetailsSection{
         margin: 30px;
     }
+    
+    
     
 }
 

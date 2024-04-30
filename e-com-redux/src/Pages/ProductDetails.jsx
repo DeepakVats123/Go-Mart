@@ -10,10 +10,42 @@ const ProductDetails = (props) => {
         
      
   return (
-    <Box boxShadow='outline' p='6' rounded='md' bg='white' m={'20px'} >
-        <Flex gap={'50px'}  textAlign={'center'}>
-            <Box boxShadow='md' p='5' rounded='md' bg='white'>
-                <Image  minWidth={'350px'} maxW={'400px'} minHeight={'300px'} maxH={'300px'} src={image} />
+    <Box alignItems={'center'} boxShadow='outline' p='6' rounded='md' bg='white' m={'20px'}
+     css={
+            {
+                '@media (max-width: 950px)': {
+                    width : '80%'
+                },
+            }
+         }
+     >
+        <Flex
+         gap={'50px'} 
+         textAlign={'center'}
+         css={
+            {
+                '@media (max-width: 950px)': {
+                    flexDirection : 'column',
+                    
+                    textAlign : 'center',
+                    alignItems : 'center'
+                },
+            }
+         }
+         >
+            <Box
+            css={
+            {
+                '@media (max-width: 950px)': {
+                    
+                    textAlign : 'center'
+                },
+            }
+         }
+             boxShadow='md' p='5' rounded='md' bg='white'>
+                <Image 
+                
+                  maxW={'400px'} minHeight={'300px'} maxH={'300px'} src={image} />
             </Box>
             <Box p={'40px'} textAlign={'left'} >
                 <Heading  size={"lg"} >{title}</Heading>

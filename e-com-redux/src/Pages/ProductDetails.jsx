@@ -10,11 +10,13 @@ const ProductDetails = (props) => {
         
      
   return (
-    <Box alignItems={'center'} boxShadow='outline' p='6' rounded='md' bg='white' m={'20px'}
+    <Box alignItems={'center'} boxShadow='outline' p='4' rounded='md' bg='white' m={'20px'}
      css={
             {
                 '@media (max-width: 950px)': {
-                    width : '80%'
+                    width : '95%',
+                    margin : 'auto',
+                    marginTop : '10px'
                 },
             }
          }
@@ -23,10 +25,8 @@ const ProductDetails = (props) => {
          gap={'50px'} 
          textAlign={'center'}
          css={
-            {
-                '@media (max-width: 950px)': {
+            {'@media (max-width: 950px)': {
                     flexDirection : 'column',
-                    
                     textAlign : 'center',
                     alignItems : 'center'
                 },
@@ -43,9 +43,17 @@ const ProductDetails = (props) => {
             }
          }
              boxShadow='md' p='5' rounded='md' bg='white'>
-                <Image 
-                
-                  maxW={'400px'} minHeight={'300px'} maxH={'300px'} src={image} />
+                <Image src={image} 
+                 maxW={'400px'}
+                 minHeight={'300px'} 
+                 maxH={'300px'} 
+                 css={
+            {'@media (max-width: 500px)': {
+                    width : "99%"
+                },
+            }
+         }
+                 />
             </Box>
             <Box p={'40px'} textAlign={'left'} >
                 <Heading  size={"lg"} >{title}</Heading>

@@ -101,10 +101,10 @@ const Products = () => {
               
         </Flex>
     
-            <Grid  className='Grid-Box' align={'center'} gap={3} >
+            <Grid  className='Grid-Box' align={'center'} gap={3} p={'20px'}>
               {products.length > 0 ? products.filter(fil).sort(sorting).map((e,i)=>{
                 return <Cards key={i} productDetails= {e} />
-              }) : <GridItem align='center' > <Image src='https://i.stack.imgur.com/ATB3o.gif' /> </GridItem>}
+              }) : <GridItem  > <Image w={'150px'} src='https://cdn.pixabay.com/animation/2022/07/29/03/42/03-42-05-37_512.gif' /> </GridItem>}
             </Grid>
          </Box>
   

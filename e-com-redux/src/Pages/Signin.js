@@ -30,7 +30,7 @@ const Signin = () => {
     if(logiInStatus.status){
       navigate('/')
     }
-   },[])
+   },[logiInStatus.status])
   
   const handleChange = (e) => {
     console.log(e.target.value);

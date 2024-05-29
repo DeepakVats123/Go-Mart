@@ -24,13 +24,13 @@ useEffect(()=>{
                                   
                                   
                                   '@media (max-width: 610px)': {
-                                      fontSize : '15px'
+                                      fontSize : '20px'
                                   },
                                   '@media (min-width: 610px)': {
                                       fontSize : '30px'
                                   },
-                                  '@media (max-width: 300px)': {
-                                      fontSize : '10px'
+                                  '@media (max-width: 400px)': {
+                                      fontSize : '15px'
                                   }
 
                               }

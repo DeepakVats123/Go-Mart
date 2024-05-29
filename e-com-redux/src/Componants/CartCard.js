@@ -21,9 +21,17 @@ const CartCard = ({e,i}) => {
                             direction={{ base: 'column', sm: 'row' }}
                             overflow='hidden'
                             variant='outline'
-                            size='sm'
-                            
+                            size='md'
                             alignItems={'center'}
+                            css={{'@media (max-width: 480px)': {
+                                      width : '99%',
+                                      
+                                          },
+                                          '@media (max-width: 800px)': {
+                                      
+                                          }
+                                    
+                                          }}
                              >
                     <Image
                       m='3'
@@ -32,21 +40,23 @@ const CartCard = ({e,i}) => {
                       maxH={{ sm: '150px'}}
                       src={e.image}
                       alt='Caffe Latte'
-                      css={
-                              {
-                                  '@media (max-width: 480px)': {
-                                      width : '40%'
-                                  },
-                              }
-                          }
+                      css={{'@media (max-width: 480px)': {
+                                      width : '35%'
+                                          }}}
                     />
 
                 <Stack>
-                  <CardBody align='left' width={'450px'}  >
-                    <Heading  size='md'>{e.title.slice(0, 28)}</Heading>
+                  <CardBody
+                   align='left'
+                   width={'95%'}
+                   css={{'@media (max-width: 480px)': {
+                                      fontSize : 'sm'
+                                          }}}
+                     >
+                    <Heading  size='md'>{e.title.slice(0, 20)}</Heading>
 
                     <Text mb='-4' >
-                      {e.description.slice(0, 50)}
+                      {e.description.slice(0, 30)}
                     </Text>
                   </CardBody>
                   <Divider />

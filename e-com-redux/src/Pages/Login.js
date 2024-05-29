@@ -30,7 +30,7 @@ const Login = () => {
         navigate("/");
       }
     }
-  }, []);
+  }, [logiInStatus]);
 
   const validForm = (data) => {
     const errors = {};
@@ -69,7 +69,7 @@ const Login = () => {
         setlogiInStatus(
           localStorage.setItem(
             "ecom-login-status",
-            JSON.stringify({ status: true, name: userData[0].name })
+            JSON.stringify({ status: true, name: login[0].name })
           )
         );
         setFormData({

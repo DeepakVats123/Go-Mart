@@ -35,7 +35,7 @@ const Cart = () => {
         });
       }
     }
-  }, []);
+  }, [logiInStatus.status]);
   
 
   let plus = cartItems.reduce((sum , e)=> sum + e.price * e.quantity , 0)
@@ -46,7 +46,20 @@ const Cart = () => {
   return (
 
     <Box className='CartGrid'  >
-        <Box m={'auto'} p={'2px'} w={'450px'}  align={'center'} className='cartCardSection'>
+        <Box
+        css={{
+                '@media (max-width: 800px)': {
+                    width: '450px',
+                    
+                          
+                },
+                '@media (max-width: 480px)': {
+                    width: "99%",
+                    
+                         
+                },
+            }}
+         m={'auto'} p={'2px'} w={'450px'}  align={'center'} className='cartCardSection'>
         {cartItems.length > 0 ? cartItems.map((e,i) =>{
             return <CartCard key={i+1} e={e} i={i} />
           }) : <EmptyCart /> }

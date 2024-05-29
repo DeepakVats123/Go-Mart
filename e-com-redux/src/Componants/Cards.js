@@ -18,10 +18,10 @@ const Cards = ({productDetails}) => {
 
   return (
     <GridItem mt={'10px'} >
-        <Card   boxShadow={'2xl'} maxW='lg' h='480' >
+        <Card borderRadius={'10px'}  boxShadow={'2xl'} maxW='lg' h='480' p={'10px'} >
         
   <CardBody onClick={()=>handleNavigate()} >
-    <Center><Image  boxSize='200px'
+    <Center><Image  boxSize='180px'
       src={productDetails.image}
       alt='Green double couch with wooden legs'
       borderRadius='lg'

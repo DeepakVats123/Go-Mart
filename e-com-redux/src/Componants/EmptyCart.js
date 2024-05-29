@@ -7,7 +7,9 @@ const EmptyCart = () => {
      css={
             {
                 '@media (max-width: 500px)': {
-                    width : '300px'
+                    width : '280px',
+                    padding : '2px'
+                    
                 },
             }
          } >

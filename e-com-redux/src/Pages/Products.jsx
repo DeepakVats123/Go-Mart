@@ -101,7 +101,7 @@ const Products = () => {
               
         </Flex>
     
-            <Grid  className='Grid-Box' align={'center'} gap={3} p={'20px'}>
+            <Grid  className='Grid-Box' align={'center'} gap={3} px={'30px'} pt='5'>
               {products.length > 0 ? products.filter(fil).sort(sorting).map((e,i)=>{
                 return <Cards key={i} productDetails= {e} />
               }) : <GridItem  > <Image w={'150px'} src='https://cdn.pixabay.com/animation/2022/07/29/03/42/03-42-05-37_512.gif' /> </GridItem>}

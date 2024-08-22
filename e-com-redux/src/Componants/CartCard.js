@@ -75,7 +75,7 @@ const CartCard = ({e,i}) => {
                             
                       </Box>
                       
-                      <Box ml={'20px'} align={'left'}   flex='4' >
+                      <Box ml={'20px'} align={'left'}   flex='1' >
                       <Button  onClick={()=>{deleteFromCartAction(cartItems,dispatch,i)}} size={'sm'} variant='solid' colorScheme='blue'>Delete</Button>
                       </Box>
                     </Flex>

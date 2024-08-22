@@ -1,5 +1,7 @@
-import { Menu, MenuButton, MenuList,Button, MenuItem,Text, Center } from '@chakra-ui/react'
+import { Menu, MenuButton, MenuList,Button, MenuItem,Text, Center, Flex, Box } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
+import { AiOutlineLogin } from 'react-icons/ai'
+import { RiLogoutCircleLine } from 'react-icons/ri'
 import { NavLink } from 'react-router-dom'
 
 const LoginBtn = () => {
@@ -17,7 +19,7 @@ useEffect(()=>{
 })
 
   return (
-<Menu  bg={"black"}>
+<Menu bg={"black"} >
   <MenuButton 
     css={
                               {
@@ -35,19 +37,21 @@ useEffect(()=>{
 
                               }
                           }
-    bg={"black"} color={"white"} as={Button} rightIcon={">"}>
+    bg={"black"} p={"10px"} pb={"15px"} color={"white"} _hover={{color: "black", bg: "white"}} as={Button}>
   
     {
-      logInStatus.status == false || logInStatus.status == null? <NavLink  to={'/login'}>Login </NavLink>  : <Text>{logInStatus.name}</Text>
+      logInStatus.status == false || logInStatus.status == null? <NavLink to={'/login'}><Flex align={"center"} justify={"center"}>Login <AiOutlineLogin /></Flex></NavLink>  : <Text>{logInStatus.name}</Text>
     }
   </MenuButton>
-  <MenuList alignItems={'center'}  bg={"black"}>
-    <MenuItem   fontSize={"lg"} bg={"black"}>{logInStatus.status == false || logInStatus.status == null ? 
-      <NavLink  to={'/login'}>LogIn </NavLink>
-    : <button   onClick={()=>{
+  <MenuList alignItems={'center'}  content='center' p='10px'  bg={"black"}>
+    <MenuItem border='1px'borderRadius={'md'} w='100%'  fontSize={"lg"} bg={"black"}>{logInStatus.status == false || logInStatus.status == null ? 
+      <NavLink  to={'/login'}>
+      <Flex alignItems={'center'} gap='110px'><Box>Login </Box><Box><AiOutlineLogin /></Box></Flex>
+      </NavLink>
+    : <button  onClick={()=>{
       localStorage.setItem("ecom-login-status",JSON.stringify({"name" : "Login", "status": false}));
       setIsLogIn(JSON.parse(localStorage.getItem("ecom-login-status")))
-      }}>Logout</button>}</MenuItem>
+      }}><Flex alignItems={'center'} gap='100px'><Box>LogOut </Box><Box><RiLogoutCircleLine /></Box></Flex></button>}</MenuItem>
   </MenuList>
 </Menu>
   )
